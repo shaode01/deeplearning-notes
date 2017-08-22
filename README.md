@@ -10,3 +10,12 @@
 "it is okay if you don't need a completely unbiased estimate of the performance of your algorithm."
 my question is, under which circumstances you don't need a completely unbiased estimate?
 
+2. 偏差和方差
+* 偏差和方差是机器学习里一个重要的概念，易学难精。即使你已经看过相关的定义，总有进一步理解的空间。
+* 在深度学习领域已经很少谈及“偏差方差均衡”（bias-variance trade-off）。
+* 首先我们来理解一下这两个概念：比如一个本应该用曲线隔开的两类点，如果我们只用线性模型拟合，这种类型就是高偏差，我们也称之为“欠拟合”，而与此相反，如果我们用一个无比复杂的分类器（比如深度神经网络），也许我们能正确的分类每一个样本点（包括噪声点），但这种分类器也“好”，这种类型就是高方差，也称之为“过拟合”。而中间类型的，既有一定程度的模型复杂度，也能区分出大多数点，则是一个“理想”的分类器。
+* 理解偏差和方差的另一个方法就是训练误差和dev set error。比如图像识别，比如训练误差为1%，dev set error为11%，这表明你在训练数据集上表现良好，但在dev数据集上表现一般。所以看上去你在训练数据集上过拟合了，以至于你无法很好的在dev数据集上“泛化”（not generalizing well）。这种情形就是高方差。另一种情况，比如训练误差为15%，dev set error为16%，而普通人的误差接近于0%，则说明你的模型在训练数据集上表现也很差。也就是说你在训练数据集上“欠拟合”。这种情况就是高偏差。但这个模型的泛化能力并不算差，毕竟在dev set上的误差也就比训练数据集上多了1%。而如果在dev set上的误差为30%，则这个模型（吴恩达此处用的是algorithm，不是很理解为什么用这个词）也有高方差。
+* 人类能达到的误差，或者最优误差（有时称之为贝叶斯误差）被当做基线（base）。如果基线就是15%，那么我们的分类器能有15%的误差也就是一个合理的误差了，此时就不能认为有15%的误差是高偏差。（比如很模糊的图片，人也不能高效地识别，更何况机器了）。
+## my question
+* classifer or algorithm?
+* “So there's a classfier of high variance and this is overfitting the data.”So by looking at the training set error,you would be able to render a diagnosis of your algorithm having high variance."
